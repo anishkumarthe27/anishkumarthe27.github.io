@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="theme-color" content="#f3f4f6" />
+    <meta name="theme-color" content="#f3f4f6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e1217" media="(prefers-color-scheme: dark)" />
+    <script>
+      (() => {
+        const key = 'portfolio-theme';
+        const stored = localStorage.getItem(key);
+        const theme =
+          stored === 'light' || stored === 'dark'
+            ? stored
+            : window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        document.documentElement.style.colorScheme = theme;
+        const themeColor = theme === 'dark' ? '#0e1217' : '#f3f4f6';
+        const themeColorMeta = document.querySelector('meta[name="theme-color"]:not([media])');
+        if (themeColorMeta) {
+          themeColorMeta.setAttribute('content', themeColor);
+        }
+      })();
+    </script>
+    <title>Anish Kumar Patel | Full Stack Software Engineer</title>
+    <meta
+      name="description"
+      content="Full Stack Software Engineer at Next Element Pvt. Ltd. PHP, Node.js, and React on school operations, procurement, budget, and ID cards. About 50% faster examination-report page/API and processing time."
+    />
+    <meta name="author" content="Anish Kumar Patel" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <!--
+      Canonical origin is injected at build time from VITE_SITE_URL (docs/custom-domain.md).
+      Replace public/og-image.jpg (1200×630) if the social preview needs an update.
+    -->
+    <link rel="canonical" href="%SITE_URL%/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Anish Kumar Patel" />
+    <meta property="og:title" content="Anish Kumar Patel | Full Stack Software Engineer" />
+    <meta
+      property="og:description"
+      content="Full Stack Software Engineer at Next Element Pvt. Ltd. PHP, Node.js, and React on school operations, procurement, budget, and ID cards. About 50% faster examination-report page/API and processing time."
+    />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Anish Kumar Patel, Full Stack Software Engineer. PHP, Node.js, and React."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Anish Kumar Patel | Full Stack Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Full Stack Software Engineer at Next Element Pvt. Ltd. PHP, Node.js, and React on school operations, procurement, budget, and ID cards. About 50% faster examination-report page/API and processing time."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.jpg" />
+    <meta
+      name="twitter:image:alt"
+      content="Anish Kumar Patel, Full Stack Software Engineer. PHP, Node.js, and React."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

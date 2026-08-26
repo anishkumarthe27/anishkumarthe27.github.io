@@ -1,0 +1,3 @@
+# Static site. Jekyll processing is not used.
+User-agent: *
+Allow: /
