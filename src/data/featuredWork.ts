@@ -25,7 +25,7 @@ const schoolOpsTechnologies = phpCodeIgniterStack
 
 /**
  * Highlighted modules. Order is `priority`, not file location.
- * Paths point at files under `public/portfolio/media/`.
+ * Paths point at files under `public/media/`.
  */
 export const featuredWorks: readonly FeaturedWorkItem[] = [
   {
@@ -36,11 +36,11 @@ export const featuredWorks: readonly FeaturedWorkItem[] = [
       'Built from scratch: asset tagging, allocation, contracts, depreciation, and disposal as one lifecycle — not an isolated asset form.',
     detailedDescription:
       'The module covers tag-first or asset-first registration, allocation and transfer, warranty / AMC / insurance, straight-line and declining depreciation with net book value, repair without an approval step, and disposal with approval. Asset records connect to the purchase-order and delivery path.',
-    coverImage: '/portfolio/media/projects/asset-management/diagrams/asset-lifecycle-workflow.png',
-    video: '/portfolio/media/projects/asset-management/videos/asset-mobile-add-and-list.mp4',
+    coverImage: '/media/projects/asset-management/diagrams/asset-lifecycle-workflow.png',
+    video: '/media/projects/asset-management/videos/asset-mobile-add-and-list.mp4',
     screenshots: [
-      '/portfolio/media/projects/asset-management/screenshots/asset-depreciation-ledger.png',
-      '/portfolio/media/projects/asset-management/screenshots/asset-details.png',
+      '/media/projects/asset-management/screenshots/asset-depreciation-ledger.png',
+      '/media/projects/asset-management/screenshots/asset-details.png',
     ],
     technologies: schoolOpsTechnologies,
     capabilities: [
@@ -67,10 +67,10 @@ export const featuredWorks: readonly FeaturedWorkItem[] = [
       'Designed and implemented a procurement surface covering item, vendor, indent, purchase order, delivery, invoice, budget, and voucher entry points.',
     detailedDescription:
       'Vendor, indent, purchase order, delivery, invoice, and voucher were built from scratch. Item Catalog was existing work I contributed to. Approval steps sit between modules on the indent-to-payment path.',
-    coverImage: '/portfolio/media/projects/procurement/screenshots/procurement-overview.png',
+    coverImage: '/media/projects/procurement/screenshots/procurement-overview.png',
     screenshots: [
-      '/portfolio/media/projects/procurement/screenshots/goods-delivery-challan.png',
-      '/portfolio/media/projects/purchase-orders/screenshots/purchase-order-details.png',
+      '/media/projects/procurement/screenshots/goods-delivery-challan.png',
+      '/media/projects/purchase-orders/screenshots/purchase-order-details.png',
     ],
     technologies: schoolOpsTechnologies,
     capabilities: [
@@ -97,10 +97,10 @@ export const featuredWorks: readonly FeaturedWorkItem[] = [
       'Built from scratch and connected to purchasing so allocated, requisition, purchase-order, and invoiced amounts sit in one consumption view.',
     detailedDescription:
       'Budget is integrated with purchase orders and voucher management. Consumption and the indent-to-invoice ledger show committed versus remaining money against live procurement actions.',
-    coverImage: '/portfolio/media/projects/budget/screenshots/budget-category-consumption.png',
+    coverImage: '/media/projects/budget/screenshots/budget-category-consumption.png',
     screenshots: [
-      '/portfolio/media/projects/budget/screenshots/budget-indent-to-invoice-ledger.png',
-      '/portfolio/media/projects/budget/screenshots/budget-allocation-report.png',
+      '/media/projects/budget/screenshots/budget-indent-to-invoice-ledger.png',
+      '/media/projects/budget/screenshots/budget-allocation-report.png',
     ],
     technologies: schoolOpsTechnologies,
     capabilities: [
@@ -127,10 +127,10 @@ export const featuredWorks: readonly FeaturedWorkItem[] = [
       'Approval-connected purchasing and voucher flows, including failed-payment reissue with a penalty stored separately from the original amount.',
     detailedDescription:
       'After purchase-order approval, delivery and invoice can run as parallel tracks. Payment vouchers include invoices, attachments, and approvers. Failed payments can be reissued as a linked transaction.',
-    coverImage: '/portfolio/media/featured/workflows/invoice-processing-workflow.png',
+    coverImage: '/media/featured/workflows/invoice-processing-workflow.png',
     screenshots: [
-      '/portfolio/media/projects/other/screenshots/payment-reissue-history.png',
-      '/portfolio/media/projects/other/screenshots/payment-voucher-add.png',
+      '/media/projects/other/screenshots/payment-reissue-history.png',
+      '/media/projects/other/screenshots/payment-voucher-add.png',
     ],
     technologies: schoolOpsTechnologies,
     capabilities: [
@@ -157,11 +157,11 @@ export const featuredWorks: readonly FeaturedWorkItem[] = [
       'Feature work on the existing examination path: generate and validate report cards, then read class results — not a from-scratch module.',
     detailedDescription:
       'The staff path runs generate, pre-validate, and post-validate before a report card is published. Analysis covers subject tables, year-over-year PT1 comparison, and score-range charts. Hall-ticket templates and report-card node order sit on the same examination path. This is not the parent-facing Assessment for Learning view.',
-    coverImage: '/portfolio/media/projects/examination/screenshots/exam-report-card-workflow.png',
-    video: '/portfolio/media/projects/examination/videos/exam-marks-analysis.mp4',
+    coverImage: '/media/projects/examination/screenshots/exam-report-card-workflow.png',
+    video: '/media/projects/examination/videos/exam-marks-analysis.mp4',
     screenshots: [
-      '/portfolio/media/projects/examination/screenshots/exam-generated-report-card.png',
-      '/portfolio/media/projects/examination/screenshots/exam-graphical-analysis.png',
+      '/media/projects/examination/screenshots/exam-generated-report-card.png',
+      '/media/projects/examination/screenshots/exam-graphical-analysis.png',
     ],
     technologies: schoolOpsTechnologies,
     capabilities: [
@@ -188,11 +188,11 @@ export const featuredWorks: readonly FeaturedWorkItem[] = [
       'Built from scratch: authorized pickup records on the staff path, plus parent escort requests — not live location tracking.',
     detailedDescription:
       'Staff student-tracking covers check-in and check-out with parent cards. The parent app lists escort requests with status, students, and cancel authorization. This is a record of who may collect a student, not GPS tracking.',
-    coverImage: '/portfolio/media/projects/other/screenshots/escort-selection.png',
-    video: '/portfolio/media/projects/escort/videos/escort-parent-requests.mp4',
+    coverImage: '/media/projects/other/screenshots/escort-selection.png',
+    video: '/media/projects/escort/videos/escort-parent-requests.mp4',
     screenshots: [
-      '/portfolio/media/projects/escort/videos/escort-staff-check-in-out.mp4',
-      '/portfolio/media/projects/other/screenshots/student-checkin.png',
+      '/media/projects/escort/videos/escort-staff-check-in-out.mp4',
+      '/media/projects/other/screenshots/student-checkin.png',
     ],
     technologies: schoolOpsTechnologies,
     capabilities: [

@@ -31,7 +31,7 @@ Thumbs.db
 # Scratch notes
 anish_md_files
 
-# Local source screen recordings (too large for GitHub). Compressed copies live under public/portfolio/media/.
+# Local source screen recordings (too large for GitHub). Compressed copies live under public/media/.
 src/assets/videos/*.mov
 src/assets/videos/*.MOV
 reference/video-frames/

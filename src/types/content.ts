@@ -343,7 +343,8 @@ export type FeaturedWorkCategory =
 
 /**
  * Featured / Top Work item. Independent of `portfolioMedia`.
- * Reorder with `priority`. Paths point at files under `public/portfolio/media/`.
+ * Reorder with `priority`. Paths point at files under `public/media/`.
+ * Do not use a `/portfolio/` URL prefix — GitHub Pages serves that from the other `portfolio` repo.
  */
 export interface FeaturedWorkItem {
   id: string;

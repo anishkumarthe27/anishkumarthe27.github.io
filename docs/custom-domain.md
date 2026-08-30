@@ -41,5 +41,6 @@ The canonical host in `VITE_SITE_URL` should match the hostname in `public/CNAME
 ## 4. What not to change
 
 - Keep `base: '/'` in `vite.config.ts`. A custom domain does not introduce a path prefix.
+- Do not put static files under `public/portfolio/`. GitHub Pages serves `username.github.io/portfolio/` from the separate `portfolio` repository, so those URLs never hit this site. Use `public/media/` instead.
 - Keep root-absolute asset URLs (`/assets/...`, `/favicon.svg`). They resolve on both `*.github.io` and a custom domain.
 - Do not add a backend, proxy, or third-party host for the domain.
