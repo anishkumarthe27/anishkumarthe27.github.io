@@ -11,9 +11,9 @@ const featuredStudies: readonly FlagshipCaseStudy[] = [
     summary:
       'A multi-module school operations platform. I built some modules from scratch and contributed improvements and features to others — not a claim that every module was a personal greenfield build.',
     problem:
-      'School operations for the same schools span procurement, budget, examinations, ID cards, and other modules on one live platform rather than in isolated tools.',
+      'School operations for the same schools span procurement, budget, asset management, examinations, ID cards, gallery, assessment for learning, and other modules on one live platform rather than in isolated tools.',
     solution:
-      'I built nine modules from scratch and contributed improvements and features to seven existing ones. Procurement, budget, examination reporting, and ID cards are covered in the following case studies.',
+      'I built ten modules from scratch and contributed improvements and features to nine existing ones. Procurement, budget, asset management, examination reporting, and ID cards are covered in the following case studies.',
     visual: 'platform',
     platformVisual: {
       scopeKicker: 'Platform scope',
@@ -32,6 +32,7 @@ const featuredStudies: readonly FlagshipCaseStudy[] = [
           'Invoice',
           'Vouchers',
           'Budget',
+          'Asset Management',
           'Escort',
           'ID Cards',
         ],
@@ -47,6 +48,8 @@ const featuredStudies: readonly FlagshipCaseStudy[] = [
           'Sales',
           'Staff Allocation',
           'Reporting',
+          'Gallery',
+          'Assessment for Learning',
         ],
       },
     ],
@@ -55,7 +58,7 @@ const featuredStudies: readonly FlagshipCaseStudy[] = [
       'Session and authorization concepts used on the platform. Names only — not an internal design. Escort Management is the concrete access example: who is authorized to collect a student, with controlled access, not live location tracking.',
     security: ['JWT', 'Sessions', 'Role-based authorization', 'Redis'],
     result: [
-      'Ownership on this platform is split: nine modules built from scratch, and seven existing modules with feature work.',
+      'Ownership on this platform is split: ten modules built from scratch, and nine existing modules with feature work.',
     ],
     stackGroups: [
       {
@@ -161,6 +164,144 @@ const featuredStudies: readonly FlagshipCaseStudy[] = [
   },
   {
     kind: 'flagship',
+    id: 'enterprise-asset-management',
+    kicker: 'Case study',
+    title: 'Enterprise Asset Management',
+    summary:
+      'Built from scratch, end to end: asset lifecycle from procurement and delivery through allocation, depreciation, maintenance, valuation, and disposal — including Excel import of legacy assets. Not an isolated asset form.',
+    problem:
+      'Assets needed to be tracked through their lifecycle on the same platform as procurement, rather than in disconnected records. That includes current book value, allocation and transfer across departments and locations, warranty, insurance, AMC (annual maintenance contract), repair, disposal, and bringing existing asset records into the system.',
+    solution:
+      'I designed the database structure and business workflow, then implemented the frontend and backend so asset records stay connected to procurement, organizational data, valuation, maintenance, and disposal. Legacy assets come in through Excel upload rather than being recreated by hand.',
+    involvementIntro:
+      'I implemented this module from scratch, end to end — database architecture, workflow design, frontend, and backend. Requirements and design decisions were collaborative with the Product Lead. I was responsible for this module\'s implementation, not for the company\'s overall platform architecture.',
+    involvement: [
+      'Requirements research',
+      'Workflow design',
+      'Database design',
+      'Backend implementation',
+      'Frontend implementation',
+      'Depreciation and valuation logic',
+      'Procurement integration',
+      'Legacy Excel import',
+      'Reporting',
+      'History and audit tracking',
+      'Lazy loading',
+    ],
+    modulesTitle: 'Key capabilities',
+    moduleGroups: [
+      {
+        name: 'Asset Lifecycle',
+        intro:
+          'One connected lifecycle — creation through allocation, transfer, and disposal — not a set of isolated asset screens. Assets can be tied to department, location, and employee depending on the client\'s requirements.',
+        items: [
+          'Asset creation',
+          'Editing and maintenance',
+          'Allocation',
+          'Transfer',
+          'Department',
+          'Location',
+          'Employee',
+          'Disposal',
+        ],
+      },
+      {
+        name: 'Depreciation & Valuation',
+        intro:
+          'Accounting-oriented asset valuation. Straight-line and declining methods, with configurable useful life, rate, and residual value. Schedules are generated automatically; net book value is calculated from that depreciation.',
+        items: [
+          'Straight-line depreciation',
+          'Declining depreciation',
+          'Automatic calculations',
+          'Configurable useful life',
+          'Configurable depreciation rate',
+          'Configurable residual value',
+          'Automatic schedule generation',
+          'Net Book Value (NBV)',
+          'Current asset value',
+          'Depreciation update history',
+        ],
+      },
+      {
+        name: 'Contracts & Maintenance',
+        intro: 'Warranty, insurance, AMC, and repair sit with the asset record.',
+        items: [
+          'Warranty management',
+          'Insurance management',
+          'AMC management',
+          'Repair management',
+        ],
+      },
+      {
+        name: 'Procurement Integration',
+        intro:
+          'Asset records connect to the existing purchase-order and delivery path, including vendor and invoice associations. Purchase and disposal use approval workflows; repair does not.',
+        items: [
+          'Purchase Order',
+          'Delivery',
+          'Vendor',
+          'Invoice',
+          'Purchase approval',
+          'Disposal approval',
+        ],
+      },
+      {
+        name: 'Data Migration',
+        intro:
+          'Existing asset records can be brought in through Excel upload rather than recreating every legacy asset by hand.',
+        items: [
+          'Asset details',
+          'Allocation',
+          'Depreciation',
+          'Insurance',
+          'Warranty',
+          'AMC',
+          'Serial numbers',
+          'Tag numbers',
+        ],
+      },
+      {
+        name: 'Audit & Reporting',
+        intro:
+          'History is kept with the asset so changes can be traced. Reports give visibility into asset and lifecycle data.',
+        items: [
+          'Asset lifecycle history',
+          'Asset change history',
+          'Allocation and transfer history',
+          'Depreciation update history',
+          'Asset reports',
+        ],
+      },
+    ],
+    workflowKicker: 'Asset lifecycle',
+    workflowBandSize: 4,
+    workflow: [
+      { step: '01', name: 'Purchase Order' },
+      { step: '02', name: 'Delivery' },
+      { step: '03', name: 'Registration' },
+      { step: '04', name: 'Allocation / Transfer' },
+      { step: '05', name: 'Valuation' },
+      { step: '06', name: 'Warranty / Insurance / AMC' },
+      { step: '07', name: 'Repair' },
+      { step: '08', name: 'Disposal' },
+    ],
+    workflowNote:
+      'Asset records connect to the existing purchase-order and delivery path. After registration, assets can be allocated or transferred between departments and locations. Depreciation feeds current net book value. Warranty, insurance, and AMC sit with the asset. Repairs are recorded with no approval workflow. Purchase and disposal go through approval; disposal closes the lifecycle.',
+    capabilitiesTitle: 'Engineering highlights',
+    capabilities: [
+      'Built from scratch — full-stack, end to end',
+      'Configurable straight-line and declining depreciation, with automatic schedules and net book value',
+      'Excel import of legacy asset records',
+      'Lazy loading for large, growing datasets',
+      'Approval workflows for purchase and disposal — not for repair',
+      'Asset reporting with lifecycle history and audit tracking',
+    ],
+    performanceIntro:
+      'Designed to support large and continuously growing asset datasets, with lazy loading implemented for efficient data retrieval and UI rendering.',
+    stackGroups: phpCodeIgniterStack,
+  },
+  {
+    kind: 'flagship',
     id: 'examination-report-card-analytics',
     kicker: 'Case study',
     title: 'Examination, Report Card & Performance Analytics',
@@ -174,6 +315,7 @@ const featuredStudies: readonly FlagshipCaseStudy[] = [
     modules: [
       'Examination workflow',
       'Report-card templates',
+      'Pre-validation and post-validation',
       'Automated report-card generation',
       'Student reports',
       'Staff performance reports',
@@ -183,13 +325,13 @@ const featuredStudies: readonly FlagshipCaseStudy[] = [
     workflow: [
       { step: '01', name: 'Examination' },
       { step: '02', name: 'Templates' },
-      { step: '03', name: 'Automated generation' },
-      { step: '04', name: 'Student reports' },
-      { step: '05', name: 'Staff reports' },
-      { step: '06', name: 'Graphical analysis' },
+      { step: '03', name: 'Pre-validate' },
+      { step: '04', name: 'Generate' },
+      { step: '05', name: 'Post-validate' },
+      { step: '06', name: 'Analysis' },
     ],
     workflowNote:
-      'Marks and reports move from the examination workflow through templates and automated generation into student and staff reports, with graphical analysis on that data.',
+      'Marks move through templates, pre-validation, generation, and post-validation into student reports, with class and year-over-year analysis on that data.',
     performanceIntro:
       'The wait was in the data and generation path, not in the page chrome. The work targeted how reports were queried, indexed, and processed.',
     performance: [

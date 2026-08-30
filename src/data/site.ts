@@ -4,6 +4,8 @@ import type { NavigationItem, Site } from '@/types/content';
 
 export const navigation: readonly NavigationItem[] = [
   { kind: 'anchor', href: '#home', label: 'Home' },
+  { kind: 'anchor', href: '#featured-work', label: 'Featured' },
+  { kind: 'anchor', href: '#work-showcase', label: 'Showcase' },
   { kind: 'anchor', href: '#experience', label: 'Experience' },
   { kind: 'anchor', href: '#projects', label: 'Projects' },
   { kind: 'anchor', href: '#skills', label: 'Skills' },

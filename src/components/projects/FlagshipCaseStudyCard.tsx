@@ -1,7 +1,9 @@
 import { lazy, Suspense, type ReactNode } from 'react';
+import { ProjectMediaGallery } from '@/components/media/ProjectMediaGallery';
 import { ProcessFlow } from '@/components/schematic/ProcessFlow';
 import { LazyOnView } from '@/components/perf/LazyOnView';
 import { TagList } from '@/components/ui/TagList';
+import { getMediaForProject } from '@/data/portfolioMedia';
 import { caseStudyLabels as labels } from '@/data/caseStudyLabels';
 import type { FlagshipCaseStudy } from '@/types/content';
 import { cn } from '@/utils/cn';
@@ -26,6 +28,7 @@ interface FlagshipCaseStudyCardProps {
 
 export function FlagshipCaseStudyCard({ study }: FlagshipCaseStudyCardProps) {
   const titleId = `${study.id}-title`;
+  const gallery = getMediaForProject(study.id);
 
   return (
     <article
@@ -88,6 +91,31 @@ export function FlagshipCaseStudyCard({ study }: FlagshipCaseStudyCardProps) {
                 />
               </Suspense>
             </LazyOnView>
+          </CaseStudyBlock>
+        ) : null}
+
+        {study.moduleGroups && study.visual !== 'platform' ? (
+          <CaseStudyBlock title={study.modulesTitle ?? labels.modules}>
+            <div className="grid gap-4 lg:grid-cols-2">
+              {study.moduleGroups.map((group) => (
+                <section key={group.name} className="rounded-md border border-line p-3 sm:p-4">
+                  <h5 className="kicker">{group.name}</h5>
+                  {group.intro ? (
+                    <p className="mt-2 text-pretty text-caption text-muted">{group.intro}</p>
+                  ) : null}
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-sm border border-line bg-subtle px-3 py-2 font-mono text-caption break-words text-ink"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
           </CaseStudyBlock>
         ) : null}
 
@@ -174,18 +202,20 @@ export function FlagshipCaseStudyCard({ study }: FlagshipCaseStudyCardProps) {
           </CaseStudyBlock>
         ) : null}
 
-        {study.performance ? (
+        {study.performanceIntro || study.performance ? (
           <CaseStudyBlock title={labels.performance}>
             {study.performanceIntro ? (
               <p className="max-w-3xl text-pretty text-body text-muted">{study.performanceIntro}</p>
             ) : null}
-            <ul className={cn('grid gap-2 sm:grid-cols-2', study.performanceIntro && 'mt-4')}>
-              {study.performance.map((item) => (
-                <li key={item} className="border-l border-line pl-3 text-body text-ink">
-                  {item}
-                </li>
-              ))}
-            </ul>
+            {study.performance ? (
+              <ul className={cn('grid gap-2 sm:grid-cols-2', study.performanceIntro && 'mt-4')}>
+                {study.performance.map((item) => (
+                  <li key={item} className="border-l border-line pl-3 text-body text-ink">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </CaseStudyBlock>
         ) : null}
 
@@ -196,6 +226,12 @@ export function FlagshipCaseStudyCard({ study }: FlagshipCaseStudyCardProps) {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
+          </CaseStudyBlock>
+        ) : null}
+
+        {gallery.length > 0 ? (
+          <CaseStudyBlock title={labels.gallery}>
+            <ProjectMediaGallery projectId={study.id} items={gallery} />
           </CaseStudyBlock>
         ) : null}
 

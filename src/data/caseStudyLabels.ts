@@ -18,4 +18,5 @@ export const caseStudyLabels: CaseStudyLabels = {
   implementation: 'Implementation',
   value: 'Access and records',
   measuredResult: 'Measured result',
+  gallery: 'Screenshots',
 };

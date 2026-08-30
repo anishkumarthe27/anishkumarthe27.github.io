@@ -129,6 +129,7 @@ export interface BriefCaseStudy {
   id: string;
   title: string;
   summary: string;
+  kicker?: string;
   problem?: string;
   solution?: string;
   implementationTitle?: string;
@@ -238,6 +239,7 @@ export interface CaseStudyLabels {
   implementation: string;
   value: string;
   measuredResult: string;
+  gallery: string;
 }
 
 export interface FeaturedCaseStudiesContent {
@@ -324,4 +326,79 @@ export interface AiEngineeringContent {
   tools: readonly string[];
   usesTitle: string;
   uses: readonly string[];
+}
+
+export type FeaturedWorkCategory =
+  | 'asset-management'
+  | 'procurement'
+  | 'purchase-orders'
+  | 'budget'
+  | 'inventory'
+  | 'payment-voucher'
+  | 'task-management'
+  | 'dashboards-reporting'
+  | 'workflow'
+  | 'escort'
+  | 'other';
+
+/**
+ * Featured / Top Work item. Independent of `portfolioMedia`.
+ * Reorder with `priority`. Paths point at files under `public/portfolio/media/`.
+ */
+export interface FeaturedWorkItem {
+  id: string;
+  title: string;
+  category: FeaturedWorkCategory;
+  shortDescription: string;
+  detailedDescription: string;
+  coverImage: string;
+  screenshots: readonly string[];
+  video?: string;
+  technologies: readonly string[];
+  capabilities: readonly string[];
+  contribution: string;
+  highlights: readonly string[];
+  featured: boolean;
+  priority: number;
+  relatedProject?: string;
+}
+
+export interface FeaturedWorkLabels {
+  highlights: string;
+  contribution: string;
+  technology: string;
+  viewProject: string;
+  viewScreenshots: string;
+}
+
+export interface WorkShowcaseGroup {
+  id: string;
+  title: string;
+  description: string;
+  mediaIds: readonly string[];
+}
+
+export interface WorkShowcaseContent {
+  id: string;
+  title: string;
+  intro: string;
+  groups: readonly WorkShowcaseGroup[];
+}
+
+export interface LightboxItem {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  caption?: string;
+  type: 'image' | 'video';
+}
+
+export interface FeaturedTopWorkContent {
+  id: string;
+  title: string;
+  kicker: string;
+  intro: string;
+  labels: FeaturedWorkLabels;
+  items: readonly FeaturedWorkItem[];
 }

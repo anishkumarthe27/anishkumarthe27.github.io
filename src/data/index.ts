@@ -1,5 +1,13 @@
 export { aiEngineering } from '@/data/aiEngineering';
 export { featuredCaseStudies } from '@/data/caseStudies';
+export {
+  featuredTopWork,
+  featuredWorkCategoryLabels,
+  featuredWorks,
+  getOrderedFeaturedWorks,
+} from '@/data/featuredWork';
+export { getMediaById, getMediaByIds, getMediaForProject, portfolioMedia } from '@/data/portfolioMedia';
+export { workShowcase } from '@/data/workShowcase';
 export { contact } from '@/data/contact';
 export { education } from '@/data/education';
 export { experience } from '@/data/experience';

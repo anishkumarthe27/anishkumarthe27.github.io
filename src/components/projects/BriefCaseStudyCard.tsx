@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
+import { ProjectMediaGallery } from '@/components/media/ProjectMediaGallery';
 import { Card } from '@/components/ui/Card';
 import { TagList } from '@/components/ui/TagList';
+import { getMediaForProject } from '@/data/portfolioMedia';
 import type { BriefCaseStudy, CaseStudyLabels } from '@/types/content';
 
 interface BriefCaseStudyCardProps {
@@ -11,6 +13,7 @@ interface BriefCaseStudyCardProps {
 
 export function BriefCaseStudyCard({ project, kicker, labels }: BriefCaseStudyCardProps) {
   const titleId = `${project.id}-title`;
+  const gallery = getMediaForProject(project.id);
 
   return (
     <Card
@@ -72,6 +75,12 @@ export function BriefCaseStudyCard({ project, kicker, labels }: BriefCaseStudyCa
             <p className="max-w-3xl text-pretty text-body text-muted">
               {project.performanceMetric}
             </p>
+          </StudyField>
+        ) : null}
+
+        {gallery.length > 0 ? (
+          <StudyField title={labels.gallery}>
+            <ProjectMediaGallery projectId={project.id} items={gallery} />
           </StudyField>
         ) : null}
       </div>

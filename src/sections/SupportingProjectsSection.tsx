@@ -22,7 +22,7 @@ export function SupportingProjectsSection() {
               <li key={project.id}>
                 <BriefCaseStudyCard
                   project={project}
-                  kicker={supportingProjects.kicker}
+                  kicker={project.kicker ?? supportingProjects.kicker}
                   labels={supportingProjects.labels}
                 />
               </li>
